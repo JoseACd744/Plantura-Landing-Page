@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "build:css": "tu-comando-para-construir-css",
+    "build:js": "tu-comando-para-construir-js",
     "build": "npm run build:css && npm run build:js"
   },
   "dependencies": {
