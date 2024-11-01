@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "npm run build:css && npm run build:js"
+  },
   "dependencies": {
     "firebase": "^10.13.2"
   }
