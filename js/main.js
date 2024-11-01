@@ -11,10 +11,8 @@
     };
     spinner();
     
-    
     // Initiate the wowjs
     new WOW().init();
-
 
     // Sticky Navbar
     $(window).scroll(function () {
@@ -24,7 +22,6 @@
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
     });
-
 
     // Smooth scrolling on the navbar links
     $(".navbar-nav a").on('click', function (event) {
@@ -42,7 +39,6 @@
         }
     });
     
-    
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -56,13 +52,13 @@
         return false;
     });
 
-
     // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
+    $(document).ready(function() {
+        $('[data-toggle="counter-up"]').counterUp({
+            delay: 10,
+            time: 1000
+        });
     });
-
 
     // Screenshot carousel
     $(".screenshot-carousel").owlCarousel({
@@ -72,7 +68,6 @@
         dots: true,
         items: 1
     });
-
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -99,29 +94,26 @@
         }
     });
 
-
-        // Función para cambiar el idioma
-        function changeLanguage(lang) {
+    // Función para cambiar el idioma
+    function changeLanguage(lang) {
         // Selecciona todos los elementos con textos traducibles
         const translatableElements = document.querySelectorAll('[data-en][data-es]');
-
         translatableElements.forEach(element => {
-        element.textContent = element.getAttribute('data-' + lang);
-    });
+            element.textContent = element.getAttribute('data-' + lang);
+        });
     }
 
-        // Evento para el selector de idioma
+    // Evento para el selector de idioma
+    $(document).ready(function() {
         const languageSwitcher = document.getElementById('languageSwitcher');
-        languageSwitcher.addEventListener('change', (e) => {
-        changeLanguage(e.target.value);
-    });
+        if (languageSwitcher) {
+            languageSwitcher.addEventListener('change', (e) => {
+                changeLanguage(e.target.value);
+            });
 
-        // Establecer el idioma inicial basado en el valor del selector
-        document.addEventListener('DOMContentLoaded', () => {
-        changeLanguage(languageSwitcher.value);
+            // Establecer el idioma inicial basado en el valor del selector
+            changeLanguage(languageSwitcher.value);
+        }
     });
-
 
 })(jQuery);
-
-
